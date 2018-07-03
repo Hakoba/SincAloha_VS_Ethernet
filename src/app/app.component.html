@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+      <span class="namesite">Sync Aloha & CSMA/CD </span>
+      <span class="spacer"></span>
+    <button mat-button routerLink="/" class="btn"><mat-icon>home</mat-icon> HOME </button>
+      <button mat-button [routerLink]="'/about'" class="btn"><mat-icon>description</mat-icon>ABOUT</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+  <div class="wrapper">
+  <div class="content">
+    <router-outlet></router-outlet>
+
+  </div>
+
+</div>
+

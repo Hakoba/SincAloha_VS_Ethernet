@@ -1,0 +1,100 @@
+<div class="wrapper">
+  <mat-card>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <mat-form-field>
+      <span matTooltip="Для синхронной алохи"><input
+        matInput
+        placeholder="Нормированная пропущенная нагрузка:"
+        formControlName="norm"
+      ></span>
+    </mat-form-field>
+
+    <mat-form-field>
+      <span matTooltip="тоже для синхронной алохи"><input
+        matInput
+        placeholder="Интервал времени в сек:"
+        formControlName="time"
+      ></span>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Расстояние до головной части(м):"
+        formControlName="length"
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Длина кадра(бит):"
+        formControlName="bit"
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Колл-во кадров:"
+        formControlName="frames"
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Колл-во пользователей:"
+        formControlName="users"
+      >
+    </mat-form-field>
+    <mat-divider></mat-divider>
+    <br>
+    <br>
+
+    <button [disabled]="!form.valid" type="submit" mat-raised-button color="primary">Нажать</button>
+
+  </form>
+</mat-card>
+
+
+  <div [@multi]="multiState" class="info">
+  <mat-accordion >
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Sinc Aloha
+        </mat-panel-title>
+        <mat-panel-description>
+          Данные о синхронной алохе
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-list>
+        <mat-list-item role="listitem"><p>Опытное значение производительности: {{this.lol[4]}} </p></mat-list-item>
+        <br>
+        <mat-list-item role="listitem"><p>Затраченное время (всего): {{this.lol[5]}} сек. </p> </mat-list-item>
+        <br>
+        <mat-list-item role="listitem"><p>Среднее время посылки 1 кадра:  {{this.lol[6]}} мкс </p></mat-list-item>
+        <br>
+        <mat-list-item role="listitem"><p>Нормированное значение производительности:  {{this.lol[7]}} </p></mat-list-item>
+
+      </mat-list>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          CSMA/CD
+        </mat-panel-title>
+        <mat-panel-description>
+          Данные о CSMA/CD <!--{{panelOpenState ? 'open' : 'closed'}}-->
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-list-item role="listitem"><p>Затраченное время (всего): {{this.lol[0]}} сек. </p> </mat-list-item>
+      <br>
+      <mat-list-item role="listitem"><p>Среднее время посылки 1 кадра:  {{this.lol[1]}} мкс </p></mat-list-item>
+      <br>
+      <mat-list-item role="listitem"><p>Нормированная производительность: {{this.lol[3]}} </p></mat-list-item>
+      <br>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
