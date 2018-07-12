@@ -1,4 +1,4 @@
-<h1>Sinc aloha vs CSMA/CD</h1>
+<h1>Sync aloha vs CSMA/CD</h1>
 
 <h2> Сравнительный анализ двух технологий. </h2>
 
